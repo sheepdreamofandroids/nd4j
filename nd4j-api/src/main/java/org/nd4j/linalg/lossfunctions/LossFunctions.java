@@ -73,8 +73,8 @@ public class LossFunctions {
             case RMSE_XENT:
                 INDArray rmseXentDiff = labels.sub(z);
                 INDArray squaredrmseXentDiff = pow(rmseXentDiff, 2.0);
-                INDArray sqrt = sqrt(squaredrmseXentDiff);
-                ret = sqrt.sum(1).sum(Integer.MAX_VALUE).getDouble(0);
+                double mean = squaredrmseXentDiff.mean(Integer.MAX_VALUE).getDouble(0);
+                ret = Math.sqrt(mean);
                 break;
             case MSE:
                 INDArray mseDelta = labels.sub(z);

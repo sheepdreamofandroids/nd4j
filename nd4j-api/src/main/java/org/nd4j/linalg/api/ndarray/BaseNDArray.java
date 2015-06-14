@@ -639,7 +639,7 @@ public abstract class BaseNDArray implements INDArray {
                 else if(dimension == 1) {
                     return create(data,
                             new int[]{1, shape[dimension]}
-                            , new int[]{stride[dimension],elementStride()},
+                            , new int[]{elementStride(), stride[dimension]},
                             calcoffset(index));
                 }
             }
